@@ -32,8 +32,8 @@ export default function Home() {
           }`}
         >
           <h1 className="font-display text-5xl md:text-8xl tracking-wider mb-4">
-            <span className="text-foreground">YOUR </span>
-            <span className="text-gradient">CINEMA</span>
+            <span className="text-foreground">MOV</span>
+            <span className="text-gradient">IX</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
             Book your favourite movies in seconds. Premium seats, best theatres, unforgettable experiences.

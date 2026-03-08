@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Bebas Neue"', 'cursive'],
+        display: ['"Orbitron"', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       colors: {

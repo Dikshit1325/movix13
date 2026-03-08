@@ -31,7 +31,7 @@ export default function CinemaNavbar() {
         <Link to="/" className="flex items-center gap-2 group">
           <Film className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-12" />
           <span className="font-display text-2xl tracking-wider text-foreground">
-            CINE<span className="text-primary">BOOK</span>
+            MOV<span className="text-primary">IX</span>
           </span>
         </Link>
 
