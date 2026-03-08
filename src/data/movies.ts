@@ -1,8 +1,8 @@
 import movie1 from "@/assets/movie-ishqan.png";
 import movie2 from "@/assets/movie-bambukat.png";
 import movie3 from "@/assets/movie-viyaah.png";
-import movie4 from "@/assets/movie4.jpg";
-import movie5 from "@/assets/movie5.jpg";
+import movie4 from "@/assets/movie-dhurandhar.png";
+import movie5 from "@/assets/movie-toxic.png";
 import movie6 from "@/assets/movie6.jpg";
 
 export interface Movie {
@@ -65,29 +65,29 @@ export const movies: Movie[] = [
   },
   {
     id: 4,
-    title: "Enchanted Realms",
-    genre: "Animation",
-    duration: "1h 45min",
-    rating: 8.5,
-    votes: "900+",
+    title: "Dhurandhar: The Revenge",
+    genre: "Action",
+    duration: "2h 30min",
+    rating: 9.1,
+    votes: "1.5K+",
     poster: movie4,
-    description: "A young girl discovers a hidden portal to a magical world where imagination comes alive. She must save this enchanted realm from a force that threatens to destroy all creativity.",
-    cast: ["Emma Stone (voice)", "Tom Hanks (voice)", "Awkwafina (voice)"],
-    releaseDate: "2026-04-10",
+    description: "A fiery tale of vengeance as a fearless warrior rises from the ashes to reclaim justice. Explosions, swords, and an unstoppable force collide.",
+    cast: ["Yash", "Sanjay Dutt", "Raveena Tandon"],
+    releaseDate: "2026-03-19",
     trending: false,
     upcoming: true,
   },
   {
     id: 5,
-    title: "Brothers in Arms",
+    title: "Toxic",
     genre: "Action",
-    duration: "2h 35min",
-    rating: 8.8,
-    votes: "2.1K+",
+    duration: "2h 25min",
+    rating: 9.4,
+    votes: "2.8K+",
     poster: movie5,
-    description: "Based on true events, three soldiers must navigate enemy territory to deliver a message that could end the war and save thousands of lives.",
-    cast: ["Andrew Garfield", "John Boyega", "Pedro Pascal"],
-    releaseDate: "2026-05-01",
+    description: "A gripping noir thriller set in the rain-soaked streets. A lone gunman with a dark past takes on the criminal underworld in a tale that redefines revenge.",
+    cast: ["Yash", "Nayanthara", "Kiara Advani"],
+    releaseDate: "2026-06-04",
     trending: false,
     upcoming: true,
   },
