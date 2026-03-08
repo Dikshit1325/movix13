@@ -33,11 +33,13 @@ export default function MovieCard({ movie, index = 0 }: { movie: Movie; index?: 
             <Clock className="h-3 w-3" /> {movie.duration}
           </span>
         </div>
-        <div className="pt-2">
-          <span className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full bg-primary text-primary-foreground glow-btn ripple">
-            Book Now
-          </span>
-        </div>
+        {!movie.upcoming && (
+          <div className="pt-2">
+            <span className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full bg-primary text-primary-foreground glow-btn ripple">
+              Book Now
+            </span>
+          </div>
+        )}
       </div>
     </Link>
   );
