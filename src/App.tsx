@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BookingProvider } from "@/context/BookingContext";
 import CinemaNavbar from "@/components/CinemaNavbar";
+import Footer from "@/components/Footer";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import MovieDetails from "./pages/MovieDetails";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </BookingProvider>
       </BrowserRouter>
     </TooltipProvider>
