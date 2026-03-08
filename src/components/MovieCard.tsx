@@ -17,9 +17,10 @@ export default function MovieCard({ movie, index = 0 }: { movie: Movie; index?: 
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute top-3 right-3 flex items-center gap-1 bg-background/80 backdrop-blur-sm px-2 py-1 rounded-full">
-          <Star className="h-3.5 w-3.5 text-cinema-gold fill-cinema-gold" />
-          <span className="text-xs font-semibold text-foreground">{movie.rating}</span>
+        <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+          <Star className="h-3.5 w-3.5 text-primary fill-primary" />
+          <span className="text-xs font-semibold text-foreground">{movie.rating}/10</span>
+          <span className="text-xs text-muted-foreground">{movie.votes} Votes</span>
         </div>
       </div>
       <div className="p-4 space-y-2">
