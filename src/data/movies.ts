@@ -3,7 +3,7 @@ import movie2 from "@/assets/movie-bambukat.png";
 import movie3 from "@/assets/movie-viyaah.png";
 import movie4 from "@/assets/movie-dhurandhar.png";
 import movie5 from "@/assets/movie-toxic.png";
-import movie6 from "@/assets/movie6.jpg";
+import movie6 from "@/assets/movie-kerala-story.png";
 
 export interface Movie {
   id: number;
@@ -93,18 +93,18 @@ export const movies: Movie[] = [
   },
   {
     id: 6,
-    title: "Nightstrike",
-    genre: "Action",
-    duration: "2h 15min",
-    rating: 9.0,
-    votes: "3.5K+",
+    title: "The Kerala Story 2",
+    genre: "Drama",
+    duration: "2h 40min",
+    rating: 9.3,
+    votes: "13.8K+",
     poster: movie6,
-    description: "A masked vigilante rises from the shadows to protect the city from a criminal empire. But when his identity is threatened, he must decide what he's willing to sacrifice.",
-    cast: ["Robert Pattinson", "Saoirse Ronan", "Idris Elba"],
+    description: "The gripping sequel that goes beyond — unveiling untold truths and harrowing journeys of courage, faith, and survival.",
+    cast: ["Adah Sharma", "Yogita Bihani", "Sonia Balani"],
     releaseDate: "2026-03-20",
     trending: true,
     upcoming: false,
   },
 ];
 
-export const genres = ["All", "Romance", "Comedy", "Animation", "Action"];
+export const genres = ["All", "Romance", "Comedy", "Action", "Drama"];
