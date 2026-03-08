@@ -107,4 +107,4 @@ export const movies: Movie[] = [
   },
 ];
 
-export const genres = ["All", "Sci-Fi", "Romance", "Horror", "Animation", "Action"];
+export const genres = ["All", "Romance", "Comedy", "Animation", "Action"];
