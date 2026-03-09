@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Movix – Movie Ticket Booking System
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Movix is a frontend web application for booking movie tickets.
+It allows users to explore movies, view details, select seats, and simulate the ticket booking experience.
 
-## How can I edit this code?
+The goal of this project is to create a clean and interactive user interface for a movie ticket booking platform.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+* Browse available movies
+* View movie details
+* Select seats for a show
+* Booking summary interface
+* Responsive design for different screen sizes
+* Interactive UI components
+* Smooth animations and transitions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is built using the following technologies:
 
-**Use your preferred IDE**
+* **React**
+* **Vite**
+* **JavaScript**
+* **Tailwind CSS**
+* **shadcn/ui components**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Make sure you have **Node.js and npm installed**.
 
-Follow these steps:
+Follow these steps to run the project locally:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd <PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Run the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+After running the development server, open the browser and visit:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+http://localhost:5173
+```
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+components/
+pages/
+assets/
+styles/
+App.jsx
+main.jsx
+```
 
-## What technologies are used for this project?
+* **components/** – reusable UI components
+* **pages/** – application pages such as Home, Movies, Seat Selection
+* **assets/** – images and static files
+* **styles/** – global styling
 
-This project is built with:
+## Future Improvements
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Possible improvements for this project include:
 
-## How can I deploy this project?
+* Backend integration
+* User authentication
+* Real-time seat availability
+* Payment gateway integration
+* Movie search and filtering
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Author
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Developed as part of a web development project.
