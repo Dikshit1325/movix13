@@ -1,12 +1,12 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SeatLayoutComponent from "@/components/SeatLayout";
 import { useBooking } from "@/context/BookingContext";
 import { generateSeatLayout } from "@/data/theatres";
-import SeatLayoutComponent from "@/components/SeatLayout";
 
 export default function SeatSelection() {
   const navigate = useNavigate();
-  const { selectedMovie, selectedTheatre, selectedShowTime, setSelectedSeats } = useBooking();
+  const { selectedMovie, selectedShowTime, selectedTheatre, setSelectedSeats } = useBooking();
   const seats = useMemo(() => generateSeatLayout(), []);
   const [localSeats, setLocalSeats] = useState<string[]>([]);
 
@@ -19,7 +19,7 @@ export default function SeatSelection() {
   }
 
   const toggleSeat = (id: string) => {
-    setLocalSeats((prev) => prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]);
+    setLocalSeats((current) => (current.includes(id) ? current.filter((seat) => seat !== id) : [...current, id]));
   };
 
   const total = localSeats.length * selectedTheatre.pricePerSeat;
@@ -30,37 +30,36 @@ export default function SeatSelection() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="font-display text-3xl md:text-4xl tracking-wide mb-2 text-center">
+    <div className="min-h-screen pb-16 pt-24">
+      <div className="container mx-auto max-w-3xl px-4">
+        <h1 className="mb-2 text-center font-display text-3xl tracking-wide md:text-4xl">
           Select <span className="text-gradient">Your Seats</span>
         </h1>
-        <p className="text-center text-muted-foreground text-sm mb-2">
-          {selectedMovie.title} • {selectedTheatre.name} • {selectedShowTime}
+        <p className="mb-2 text-center text-sm text-muted-foreground">
+          {selectedMovie.title} | {selectedTheatre.name} | {selectedShowTime}
         </p>
 
-        <div className="glass-card rounded-2xl p-6 md:p-8 mt-8">
+        <div className="glass-card mt-8 rounded-2xl p-6 md:p-8">
           <SeatLayoutComponent seats={seats} selectedSeats={localSeats} onToggleSeat={toggleSeat} />
         </div>
 
-        {/* Summary bar */}
-        <div className="mt-8 glass-card rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in-up">
+        <div className="glass-card animate-fade-in-up mt-8 flex flex-col items-center justify-between gap-4 rounded-xl p-5 sm:flex-row">
           <div className="text-sm text-muted-foreground">
             {localSeats.length > 0 ? (
               <>
-                <span className="text-foreground font-semibold">{localSeats.length}</span> seat(s) selected:{" "}
-                <span className="text-primary font-medium">{localSeats.join(", ")}</span>
+                <span className="font-semibold text-foreground">{localSeats.length}</span> seat(s) selected:{" "}
+                <span className="font-medium text-primary">{localSeats.join(", ")}</span>
               </>
             ) : (
               "Tap on available seats to select"
             )}
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-xl font-bold text-primary">₹{total}</span>
+            <span className="text-xl font-bold text-primary">Rs. {total}</span>
             <button
               onClick={handleProceed}
               disabled={localSeats.length === 0}
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm glow-btn ripple disabled:opacity-40 disabled:cursor-not-allowed"
+              className="ripple rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground glow-btn disabled:cursor-not-allowed disabled:opacity-40"
             >
               Proceed
             </button>

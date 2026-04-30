@@ -1,33 +1,43 @@
-import { useBooking } from "@/context/BookingContext";
-import BookingCard from "@/components/BookingCard";
 import { Link } from "react-router-dom";
 import { Ticket } from "lucide-react";
+import BookingCard from "@/components/BookingCard";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/AuthContext";
+import { useBooking } from "@/context/BookingContext";
 
 export default function MyBookings() {
-  const { bookings } = useBooking();
+  const { user } = useAuth();
+  const { bookings, isLoadingBookings } = useBooking();
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h1 className="font-display text-4xl tracking-wide mb-8">
+    <div className="min-h-screen pb-16 pt-24">
+      <div className="container mx-auto max-w-2xl px-4">
+        <h1 className="mb-8 font-display text-4xl tracking-wide">
           My <span className="text-gradient">Bookings</span>
         </h1>
 
-        {bookings.length === 0 ? (
-          <div className="text-center py-20 space-y-4">
-            <Ticket className="h-16 w-16 text-muted-foreground mx-auto" />
+        {!user ? (
+          <div className="space-y-4 py-20 text-center">
+            <Ticket className="mx-auto h-16 w-16 text-muted-foreground" />
+            <p className="text-muted-foreground">Sign in to view your saved bookings.</p>
+            <Link to="/sign-in?redirect=/my-bookings">
+              <Button className="rounded-full">Sign In</Button>
+            </Link>
+          </div>
+        ) : isLoadingBookings ? (
+          <div className="py-20 text-center text-muted-foreground">Loading your bookings...</div>
+        ) : bookings.length === 0 ? (
+          <div className="space-y-4 py-20 text-center">
+            <Ticket className="mx-auto h-16 w-16 text-muted-foreground" />
             <p className="text-muted-foreground">No bookings yet</p>
-            <Link
-              to="/movies"
-              className="inline-block px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold glow-btn ripple"
-            >
+            <Link to="/movies" className="inline-block rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground glow-btn ripple">
               Browse Movies
             </Link>
           </div>
         ) : (
           <div className="space-y-5">
-            {bookings.map((b) => (
-              <BookingCard key={b.id} booking={b} />
+            {bookings.map((booking) => (
+              <BookingCard key={booking.id} booking={booking} />
             ))}
           </div>
         )}
