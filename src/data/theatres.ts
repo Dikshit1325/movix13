@@ -37,22 +37,36 @@ export const theatres: Theatre[] = [
   },
 ];
 
-// Generate seat layout: 8 rows x 10 cols
 export type SeatStatus = "available" | "booked";
+export type SeatZone = "hype" | "zen" | "date";
 
 export interface Seat {
   id: string;
   row: string;
   number: number;
   status: SeatStatus;
+  zone: SeatZone;
+  price: number;
 }
 
-export function generateSeatLayout(): Seat[] {
+export function generateSeatLayout(basePrice: number = 200): Seat[] {
   const rows = ["A", "B", "C", "D", "E", "F", "G", "H"];
   const seats: Seat[] = [];
   const bookedSeats = new Set(["A3", "A4", "B7", "C2", "C3", "D5", "E8", "F1", "F2", "G6", "G7", "H4", "H5"]);
 
   rows.forEach((row) => {
+    let zone: SeatZone = "hype";
+    let priceMultiplier = 1.0;
+    
+    if (["D", "E", "F"].includes(row)) {
+      zone = "zen";
+      priceMultiplier = 1.3; // 30% more
+    }
+    if (["G", "H"].includes(row)) {
+      zone = "date";
+      priceMultiplier = 1.8; // 80% more
+    }
+
     for (let i = 1; i <= 10; i++) {
       const id = `${row}${i}`;
       seats.push({
@@ -60,6 +74,8 @@ export function generateSeatLayout(): Seat[] {
         row,
         number: i,
         status: bookedSeats.has(id) ? "booked" : "available",
+        zone,
+        price: Math.round(basePrice * priceMultiplier),
       });
     }
   });
